@@ -108,6 +108,10 @@ class PostInterfaceType extends BaseType {
 					'type'        => $types->string(),
 					'description' => esc_html__( 'If the post is an attachment or a media file, this field will carry the corresponding MIME type. This field is equivalent to the value of WP_Post->post_mime_type and the post_mime_type column in the `wp_posts` database table.', 'wp-graphql' ),
 				),
+                'thumbnail_url' => array(
+                    'type' => $types->string(),
+                    'description' => esc_html__( 'The URL to the post\'s thumbnail.', 'wp-graphql' ),
+                ),
 				'comment_count'  => array(
 					'type'        => $types->int(),
 					'description' => esc_html__( 'The number of comments. Even though WP GraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatability.', 'wp-graphql' ),
