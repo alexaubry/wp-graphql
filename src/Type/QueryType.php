@@ -251,7 +251,7 @@ class QueryType extends BaseType {
                 
                 if ( isset( $args['modified_after'] ) ) {
                     $query_args['date_query'] => array(
-                        'after' => '@'.$args['modified_after']
+                        'after' => '@'.'{$args['modified_after']}'
                     )
                 }
 
@@ -297,7 +297,7 @@ class QueryType extends BaseType {
         
         if ( isset( $args['modified_after'] ) ) {
             $query_args['date_query'] => array(
-                'after' => '@'.$args['modified_after']
+                'after' => '@'.'{$args['modified_after']}'
             )
         }
 
