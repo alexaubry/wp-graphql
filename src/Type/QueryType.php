@@ -248,6 +248,12 @@ class QueryType extends BaseType {
 				if ( isset( $args['after'] ) ) {
 					$query_args['offset'] = $args['after'];
 				}
+                
+                if ( isset( $args['modified_after'] ) ) {
+                    $query_args['date_query'] => array(
+                        'after' => '@'.$args['modified_after']
+                    )
+                }
 
 				$posts_query = new \WP_Query( $query_args );
 				$posts = $posts_query->get_posts();
@@ -288,6 +294,12 @@ class QueryType extends BaseType {
 		if ( isset( $args['after'] ) ) {
 			$query_args['offset'] = $args['after'];
 		}
+        
+        if ( isset( $args['modified_after'] ) ) {
+            $query_args['date_query'] => array(
+                'after' => '@'.$args['modified_after']
+            )
+        }
 
 		$query_args = array_merge( $query_args, $args );
 

@@ -188,7 +188,11 @@ final class WPQuery {
 				'description'  => esc_html__( 'Restricts a collection based on a page slug', 'wp-graphql' ),
 				'defaultValue' => 'date',
 			),
-			// Date parameters not supported yet.
+			// Date parameters.
+            'modified_after' => array(
+                'type' => $this->types->int(),
+                'description'  => esc_html__( 'Restricts a collection based on the last time the items were modified. UNIX Timestamp.', 'wp-graphql'
+            ),
 			// Meta query parameters not supported yet.
 			// Permissions paramaters not supported yet.
 			// Mime type params.
