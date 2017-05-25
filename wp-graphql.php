@@ -70,7 +70,7 @@ function graphql_api_init() {
  * @see add_rewrite_rule()
  */
 function graphql_api_register_rewrites() {
-       add_rewrite_rule( '^' . get_graphql_url_path() . '/?$', 'index.php?graphql_path=/', 'top' );
+     add_rewrite_rule( '^graphql/?$', 'index.php?graphql_path=/', 'top' );
 }
 
 /**
