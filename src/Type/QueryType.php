@@ -251,13 +251,13 @@ class QueryType extends BaseType {
                 
                 if ( isset( $args['modified_after'] ) ) {
                     $timestamp = $args['modified_after'];
-                    $modified_after_date = '@'.'{$timestamp}';
+                    $modified_after_date = '@'.strval($timestamp);
                     $query_args['date_query'] = array(
                         'after' => $modified_after_date
                     );
                 }
 
-				$posts_query = new \WP_Query( $query_args );
+                $posts_query = new \WP_Query( $query_args );
 				$posts = $posts_query->get_posts();
 				return ! empty( $posts ) ? $posts : null;
 			},
@@ -299,7 +299,7 @@ class QueryType extends BaseType {
         
         if ( isset( $args['modified_after'] ) ) {
             $timestamp = $args['modified_after'];
-            $modified_after_date = '@'.'{$timestamp}';
+            $modified_after_date = '@'.strval($timestamp);
             $query_args['date_query'] = array(
                 'after' => $modified_after_date
             );
