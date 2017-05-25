@@ -192,6 +192,7 @@ final class WPQuery {
             'modified_after' => array(
                 'type' => $this->types->int(),
                 'description'  => esc_html__( 'Restricts a collection based on the last time the items were modified. UNIX Timestamp.', 'wp-graphql'
+                ),
             ),
 			// Meta query parameters not supported yet.
 			// Permissions paramaters not supported yet.
@@ -199,7 +200,7 @@ final class WPQuery {
 			'post_mime_type' => array(
 				'type'         => $this->types->string(),
 				'description'  => esc_html__( 'Restricts a collection of attachments based on mime_type', 'wp-graphql' ),
-			),
+            )
 			// Caching parameters are not supported, and probably will not be.
 		);
 
