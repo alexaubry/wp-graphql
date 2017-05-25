@@ -70,7 +70,7 @@ function graphql_api_init() {
  * @see add_rewrite_rule()
  */
 function graphql_api_register_rewrites() {
-	add_rewrite_rule( '^' . get_graphql_url_path() . '/?$', 'index.php?graphql_path=/', 'top' );
+       add_rewrite_rule( '^' . get_graphql_url_path() . '/?$', 'index.php?graphql_path=/', 'top' );
 }
 
 /**
@@ -427,6 +427,9 @@ function serve_graphql_request() {
 		if ( isset( $_SERVER['CONTENT_TYPE'] ) && false !== strpos( $_SERVER['CONTENT_TYPE'], 'application/json' ) ) {
 			$raw = file_get_contents( 'php://input' ) ?: '';
 			$data = json_decode( $raw, true );
+		} elseif ( isset( $_SERVER['CONTENT_TYPE'] ) && false !== strpos( $_SERVER['CONTENT_TYPE'], 'application/graphql' ) ) {
+			$raw = file_get_contents( 'php://input' ) ?: '';
+			$data = ['query' => $raw];
 		} else {
 			$data = $_REQUEST;
 		}
