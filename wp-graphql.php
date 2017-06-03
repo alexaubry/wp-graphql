@@ -444,11 +444,15 @@ function serve_graphql_request() {
 			';
 		}
 
+        // Unescape the query
+        $data['query'] = $unescaped_data = stripslashes($data['query']);
+        $data['variables'] = $unescaped_data = stripslashes($data['variables']);        
+
 		// Build GraphQL schema out of the query object type.
 		$schema = new Schema([
 			'query' => $type_system->query(),
 		]);
-
+        
 		// Execute the query.
 		$result = GraphQL::execute(
 			$schema,
