@@ -256,6 +256,8 @@ class QueryType extends BaseType {
                         'after' => $modified_after_date
                     );
                 }
+                
+        		$query_args = array_merge( $query_args, $args );
 
                 $posts_query = new \WP_Query( $query_args );
 				$posts = $posts_query->get_posts();
@@ -296,7 +298,7 @@ class QueryType extends BaseType {
 		if ( isset( $args['after'] ) ) {
 			$query_args['offset'] = $args['after'];
 		}
-        
+                
         if ( isset( $args['modified_after'] ) ) {
             $timestamp = $args['modified_after'];
             $modified_after_date = '@'.strval($timestamp);
