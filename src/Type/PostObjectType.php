@@ -150,7 +150,8 @@ class PostObjectType extends BaseType {
 	}
 
 	public function content( \WP_Post $post, $args, AppContext $context ) {
-		return $post->post_content;
+		$rawContent = $post->post_content;
+		return apply_filters("the_content", $rawContent);
 	}
 
 	public function excerpt( \WP_Post $post, $args, AppContext $context ) {
